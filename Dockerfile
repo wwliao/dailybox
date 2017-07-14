@@ -17,9 +17,7 @@ RUN echo "US/Central" > /etc/timezone && \
     /usr/sbin/update-locale LANG=en_US.UTF-8; \
     apt-get clean all
 
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US:en
-ENV LC_ALL en_US.UTF-8
+ENV LANG="en_US.UTF-8" LANGUAGE="en_US:en" LC_ALL="en_US.UTF-8"
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     tmux less libreadline7 wget curl gzip bzip2 gnupg2 ca-certificates \
