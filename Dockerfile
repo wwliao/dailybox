@@ -40,3 +40,11 @@ RUN wget --quiet https://repo.continuum.io/miniconda/Miniconda3-4.3.14-Linux-x86
     rm ~/miniconda.sh
 
 ENV PATH "/opt/conda/bin:${PATH}"
+
+# Fish shell setting
+RUN git clone https://github.com/ccwang002/dotfiles.git ~/dotfiles && \
+    cd ~/dotfiles && \
+    /opt/conda/bin/python3 ./dotfile_setup.py --only "~/.inputrc" --only "~/.editrc" --only "*omf/" && \
+    cd ~ && curl -L https://get.oh-my.fish > install && \
+    fish ./install --noninteractive -y && \
+    rm ./install
