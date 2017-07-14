@@ -21,7 +21,7 @@ ENV LANG="en_US.UTF-8" LANGUAGE="en_US:en" LC_ALL="en_US.UTF-8"
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     tmux less libreadline7 wget curl gzip bzip2 gnupg2 ca-certificates \
-    libglib2.0-0 libxext6 libsm6 libxrender1 git \
+    libglib2.0-0 libxext6 libsm6 libxrender1 git vim-nox \
     libnss-sss && \
     apt-get clean all
 
@@ -48,3 +48,6 @@ RUN git clone https://github.com/ccwang002/dotfiles.git ~/dotfiles && \
     cd ~ && curl -L https://get.oh-my.fish > install && \
     fish ./install --noninteractive -y && \
     rm ./install
+
+# Vim setting
+RUN git clone --recursive https://github.com/ccwang002/dotvim.git ~/.vim
