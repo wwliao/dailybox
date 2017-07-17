@@ -1,10 +1,10 @@
 FROM debian:stretch
-MAINTAINER Liang-Bo Wang "liang-bo.wang@wustl.edu"
+LABEL maintainer="liang-bo.wang@wustl.edu"
 
 ARG DEBIAN_FRONTEND=noninteractive
 
 # Upgrade APT
-RUN apt-get update; apt-get install -y apt-utils; apt-get clean all
+RUN apt-get update; apt-get install -y --no-install-recommends apt-utils; apt-get clean all
 
 # Configure locale and timezone
 RUN echo "US/Central" > /etc/timezone && \
@@ -15,7 +15,7 @@ RUN echo "US/Central" > /etc/timezone && \
     locale-gen en_US.UTF-8 && \
     dpkg-reconfigure -f noninteractive locales && \
     /usr/sbin/update-locale LANG=en_US.UTF-8; \
-    apt-get clean all
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
 ENV LANG="en_US.UTF-8" LANGUAGE="en_US:en" LC_ALL="en_US.UTF-8"
 
@@ -30,24 +30,24 @@ RUN wget -nv http://download.opensuse.org/repositories/shells:fish:release:2/Deb
     apt-key add Release.key && \
     echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/2/Debian_9.0/ /' > /etc/apt/sources.list.d/fish.list && \
     apt-get update && \
-    apt-get install -y fish && \
+    apt-get install -y --no-install-recommend fish && \
     rm Release.key && \
-    apt-get clean all
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Miniconda3
-RUN wget --quiet https://repo.continuum.io/miniconda/Miniconda3-4.3.14-Linux-x86_64.sh -O ~/miniconda.sh && \
-    /bin/bash ~/miniconda.sh -b -p /opt/conda && \
-    rm ~/miniconda.sh
+RUN wget --quiet https://repo.continuum.io/miniconda/Miniconda3-4.3.14-Linux-x86_64.sh -O $HOME/miniconda.sh && \
+    /bin/bash $HOME/miniconda.sh -b -p /opt/conda && \
+    rm $HOME/miniconda.sh
 
 ENV PATH "/opt/conda/bin:${PATH}"
 
 # Fish shell setting
-RUN git clone https://github.com/ccwang002/dotfiles.git ~/dotfiles && \
-    cd ~/dotfiles && \
+RUN git clone https://github.com/ccwang002/dotfiles.git $HOME/dotfiles && \
+    cd $HOME/dotfiles && \
     /opt/conda/bin/python3 ./dotfile_setup.py --only "~/.inputrc" --only "~/.editrc" --only "*omf/" && \
-    cd ~ && curl -L https://get.oh-my.fish > install && \
+    cd $HOME && curl -L https://get.oh-my.fish > install && \
     fish ./install --noninteractive -y && \
     rm ./install
 
 # Vim setting
-RUN git clone --recursive https://github.com/ccwang002/dotvim.git ~/.vim
+RUN git clone --recursive https://github.com/ccwang002/dotvim.git $HOME/.vim
