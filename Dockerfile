@@ -12,7 +12,7 @@ RUN apt-get update && \
 RUN echo "US/Central" > /etc/timezone && \
     rm /etc/localtime && \
     dpkg-reconfigure -f noninteractive tzdata; \
-    apt-get install -y locales && \
+    apt-get update && apt-get install -y locales && \
     echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
     locale-gen en_US.UTF-8 && \
     dpkg-reconfigure -f noninteractive locales && \
