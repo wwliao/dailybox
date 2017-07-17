@@ -4,7 +4,9 @@ LABEL maintainer="liang-bo.wang@wustl.edu"
 ARG DEBIAN_FRONTEND=noninteractive
 
 # Upgrade APT
-RUN apt-get update; apt-get install -y --no-install-recommends apt-utils; apt-get clean all
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends apt-utils && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Configure locale and timezone
 RUN echo "US/Central" > /etc/timezone && \
@@ -23,7 +25,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     tmux less libreadline7 wget curl gzip bzip2 gnupg2 ca-certificates \
     libglib2.0-0 libxext6 libsm6 libxrender1 git vim-nox make htop \
     libnss-sss && \
-    apt-get clean all
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Fish shell
 RUN wget -nv http://download.opensuse.org/repositories/shells:fish:release:2/Debian_9.0/Release.key -O Release.key && \
