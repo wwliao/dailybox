@@ -50,4 +50,4 @@ RUN git clone https://github.com/ccwang002/dotfiles.git $HOME/dotfiles && \
     rm ./install
 
 # Vim setting
-RUN git clone --recursive https://github.com/ccwang002/dotvim.git $HOME/.vim
+# RUN git clone --recursive https://github.com/ccwang002/dotvim.git $HOME/.vim
