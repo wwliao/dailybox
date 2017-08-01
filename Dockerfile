@@ -33,6 +33,7 @@ RUN wget -nv http://download.opensuse.org/repositories/shells:fish:release:2/Deb
     echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/2/Debian_9.0/ /' > /etc/apt/sources.list.d/fish.list && \
     apt-get update && \
     apt-get install -y --no-install-recommends fish && \
+    chsh -s /usr/bin/fish && \
     rm Release.key && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
