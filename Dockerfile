@@ -53,6 +53,15 @@ RUN git clone https://github.com/ccwang002/dotfiles.git $HOME/dotfiles && \
     fish ./install --noninteractive -y && \
     rm ./install
 
+# Add a custom greeting function for fish shell
+RUN mkdir -p ~/.config/fish/functions && \
+    echo 'function fish_greeting\n\
+    set_color $fish_color_autosuggestion\n\
+    echo "Running Docker on host: "(hostname)\n\
+    echo "Docker OS: "(grep '"'^PRETTY_NAME'"' /etc/os-release | '"awk -F'\\\"' '{print \$2}'"')\n\
+    set_color normal\n\
+end' > ~/.config/fish/functions/fish_greeting.fish
+
 # Vim setting
 # RUN git clone --recursive https://github.com/ccwang002/dotvim.git $HOME/.vim
 
