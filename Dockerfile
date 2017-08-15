@@ -45,6 +45,9 @@ RUN wget --quiet https://repo.continuum.io/miniconda/Miniconda3-4.3.21-Linux-x86
 
 ENV PATH "/opt/conda/bin:${PATH}"
 
+RUN conda config --add channels conda-forge && \
+    conda config --add channels bioconda
+
 # Fish shell setting
 RUN git clone https://github.com/ccwang002/dotfiles.git $HOME/dotfiles && \
     cd $HOME/dotfiles && \
