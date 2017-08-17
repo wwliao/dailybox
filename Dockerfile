@@ -19,10 +19,11 @@ RUN echo "US/Central" > /etc/timezone && \
     /usr/sbin/update-locale LANG=en_US.UTF-8; \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
-ENV LANG="en_US.UTF-8" LANGUAGE="en_US:en" LC_ALL="en_US.UTF-8"
-    PATH "/opt/conda/bin:${PATH}"
+ENV LANG="en_US.UTF-8" LANGUAGE="en_US:en" LC_ALL="en_US.UTF-8" \
+    PATH="/opt/conda/bin:${PATH}"
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
     tmux less libreadline7 gzip bzip2 gnupg2 \
     openssh-client wget curl ca-certificates rsync \
     libglib2.0-0 libxext6 libsm6 libxrender1 git vim-nox make htop \
