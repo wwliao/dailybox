@@ -58,10 +58,15 @@ RUN git clone https://github.com/ccwang002/dotfiles.git $HOME/dotfiles && \
 # Vim setting
 # RUN git clone --recursive https://github.com/ccwang002/dotvim.git $HOME/.vim
 
-# Ripgrep
+# Ripgrep and exa
 RUN wget --quiet https://github.com/BurntSushi/ripgrep/releases/download/0.5.2/ripgrep-0.5.2-x86_64-unknown-linux-musl.tar.gz -O $HOME/ripgrep.tar.gz && \
     cd $HOME && tar xf $HOME/ripgrep.tar.gz && \
     cd `find $HOME -type d -name "ripgrep*"` && \
     mkdir -p /usr/local/share/man/man1 && cp rg.1 /usr/local/share/man/man1/ && \
     cp rg /usr/local/bin && \
-    rm -rf $HOME/ripgrep*
+    rm -rf $HOME/ripgrep* && \
+    \
+    wget --quiet https://storage.googleapis.com/dinglab/lbwang/tools/exa/v0.7.0_linux_musl/exa -O /usr/local/bin/exa && \
+    wget --quiet https://storage.googleapis.com/dinglab/lbwang/tools/exa/v0.7.0_linux_musl/exa.1 -O /usr/local/share/man/man1/exa.1 && \
+    wget --quiet https://storage.googleapis.com/dinglab/lbwang/tools/exa/v0.7.0_linux_musl/completions.fish -O /usr/share/fish/vendor_completions.d/exa.fish && \
+    chmod 755 /usr/local/bin/exa
