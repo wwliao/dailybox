@@ -20,6 +20,7 @@ RUN echo "US/Central" > /etc/timezone && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 ENV LANG="en_US.UTF-8" LANGUAGE="en_US:en" LC_ALL="en_US.UTF-8"
+    PATH "/opt/conda/bin:${PATH}"
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     tmux less libreadline7 gzip bzip2 gnupg2 \
@@ -41,11 +42,8 @@ RUN wget -nv http://download.opensuse.org/repositories/shells:fish:release:2/Deb
 # Miniconda3
 RUN wget --quiet https://repo.continuum.io/miniconda/Miniconda3-4.3.21-Linux-x86_64.sh -O $HOME/miniconda.sh && \
     /bin/bash $HOME/miniconda.sh -b -p /opt/conda && \
-    rm $HOME/miniconda.sh
-
-ENV PATH "/opt/conda/bin:${PATH}"
-
-RUN conda config --add channels conda-forge && \
+    rm $HOME/miniconda.sh && \
+    conda config --add channels conda-forge && \
     conda config --add channels bioconda
 
 # Fish shell setting
