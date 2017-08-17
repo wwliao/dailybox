@@ -50,7 +50,8 @@ RUN wget --quiet https://repo.continuum.io/miniconda/Miniconda3-4.3.21-Linux-x86
 # Fish shell setting
 RUN git clone https://github.com/ccwang002/dotfiles.git $HOME/dotfiles && \
     cd $HOME/dotfiles && \
-    /opt/conda/bin/python3 ./dotfile_setup.py --only "~/.inputrc" --only "~/.editrc" --only "*omf/" && \
+    /opt/conda/bin/python3 ./dotfile_setup.py \
+        --only "~/.inputrc" --only "~/.editrc" --only "*omf/" --only "~/.tmux.conf" && \
     cd $HOME && curl -L https://get.oh-my.fish > install && \
     fish ./install --noninteractive -y && \
     rm ./install
