@@ -61,7 +61,7 @@ RUN git clone https://github.com/ccwang002/dotfiles.git $HOME/dotfiles && \
 # RUN git clone --recursive https://github.com/ccwang002/dotvim.git $HOME/.vim
 
 # Ripgrep and exa
-RUN wget --quiet https://github.com/BurntSushi/ripgrep/releases/download/0.5.2/ripgrep-0.5.2-x86_64-unknown-linux-musl.tar.gz -O $HOME/ripgrep.tar.gz && \
+RUN wget --quiet https://github.com/BurntSushi/ripgrep/releases/download/0.6.0/ripgrep-0.6.0-x86_64-unknown-linux-musl.tar.gz -O $HOME/ripgrep.tar.gz && \
     cd $HOME && tar xf $HOME/ripgrep.tar.gz && \
     cd `find $HOME -type d -name "ripgrep*"` && \
     mkdir -p /usr/local/share/man/man1 && cp rg.1 /usr/local/share/man/man1/ && \
