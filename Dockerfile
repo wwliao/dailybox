@@ -55,7 +55,9 @@ RUN git clone https://github.com/ccwang002/dotfiles.git $HOME/dotfiles && \
         --only "~/.inputrc" --only "~/.editrc" --only "*omf/" --only "~/.tmux.conf" && \
     cd $HOME && curl -L https://get.oh-my.fish > install && \
     fish ./install --noninteractive -y && \
-    rm ./install
+    rm ./install && \
+    rm -rf /root/.cache && \
+    rm -rf /root/.local/share/omf/.git
 
 # Vim setting
 # RUN git clone --recursive https://github.com/ccwang002/dotvim.git $HOME/.vim
