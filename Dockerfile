@@ -4,12 +4,10 @@ LABEL maintainer="liang-bo.wang@wustl.edu"
 ARG DEBIAN_FRONTEND=noninteractive
 
 # Upgrade APT
+# Configure locale and timezone
 RUN apt-get update && \
     apt-get install -y --no-install-recommends apt-utils && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
-
-# Configure locale and timezone
-RUN echo "US/Central" > /etc/timezone && \
+    echo "US/Central" > /etc/timezone && \
     rm /etc/localtime && \
     dpkg-reconfigure -f noninteractive tzdata; \
     apt-get update && apt-get install -y locales && \
