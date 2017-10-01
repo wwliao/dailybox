@@ -68,7 +68,7 @@ RUN wget --quiet https://github.com/BurntSushi/ripgrep/releases/download/0.6.0/r
     cp rg /usr/local/bin && \
     rm -rf $HOME/ripgrep* && \
     \
-    wget --quiet https://storage.googleapis.com/dinglab/lbwang/tools/exa/v0.7.0_linux_musl/exa -O /usr/local/bin/exa && \
-    wget --quiet https://storage.googleapis.com/dinglab/lbwang/tools/exa/v0.7.0_linux_musl/exa.1 -O /usr/local/share/man/man1/exa.1 && \
-    wget --quiet https://storage.googleapis.com/dinglab/lbwang/tools/exa/v0.7.0_linux_musl/completions.fish -O /usr/share/fish/vendor_completions.d/exa.fish && \
+    wget --quiet https://storage.googleapis.com/dinglab/lbwang/tools/exa/v0.8.0_linux_musl/exa -O /usr/local/bin/exa && \
+    wget --quiet https://storage.googleapis.com/dinglab/lbwang/tools/exa/v0.8.0_linux_musl/exa.1 -O /usr/local/share/man/man1/exa.1 && \
+    wget --quiet https://storage.googleapis.com/dinglab/lbwang/tools/exa/v0.8.0_linux_musl/completions.fish -O /usr/share/fish/vendor_completions.d/exa.fish && \
     chmod 755 /usr/local/bin/exa
