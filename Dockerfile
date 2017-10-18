@@ -57,8 +57,6 @@ RUN git clone https://github.com/ccwang002/dotfiles.git $HOME/dotfiles && \
     rm -rf /root/.cache && \
     rm -rf /root/.local/share/omf/.git
 
-# Vim setting
-# RUN git clone --recursive https://github.com/ccwang002/dotvim.git $HOME/.vim
 
 # Ripgrep and exa
 RUN wget --quiet https://github.com/BurntSushi/ripgrep/releases/download/0.6.0/ripgrep-0.6.0-x86_64-unknown-linux-musl.tar.gz -O $HOME/ripgrep.tar.gz && \
