@@ -51,12 +51,8 @@ RUN wget --quiet https://repo.continuum.io/miniconda/Miniconda3-4.3.27.1-Linux-x
 RUN git clone https://github.com/ccwang002/dotfiles.git $HOME/dotfiles && \
     cd $HOME/dotfiles && \
     /opt/conda/bin/python3 ./dotfile_setup.py \
-        --only "~/.inputrc" --only "~/.editrc" --only "*omf/" --only "~/.tmux.conf" && \
-    cd $HOME && curl -L https://get.oh-my.fish > install && \
-    fish ./install --noninteractive -y && \
-    rm ./install && \
-    rm -rf /root/.cache && \
-    rm -rf /root/.local/share/omf/.git
+        --only "~/.inputrc" --only "~/.editrc" --only "~/.tmux.conf" && \
+    rm -rf /root/.cache
 
 # Ripgrep, exa, and fd
 RUN wget --quiet https://github.com/BurntSushi/ripgrep/releases/download/0.6.0/ripgrep-0.6.0-x86_64-unknown-linux-musl.tar.gz -O $HOME/ripgrep.tar.gz && \
