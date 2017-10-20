@@ -42,9 +42,10 @@ RUN wget -nv http://download.opensuse.org/repositories/shells:fish:release:2/Deb
 # Miniconda3
 RUN wget --quiet https://repo.continuum.io/miniconda/Miniconda3-4.3.27.1-Linux-x86_64.sh -O $HOME/miniconda.sh && \
     /bin/bash $HOME/miniconda.sh -b -p /opt/conda && \
-    rm $HOME/miniconda.sh && \
     conda config --add channels conda-forge && \
-    conda config --add channels bioconda
+    conda config --add channels bioconda && \
+    echo 'export PATH="/opt/conda/bin:$PATH"' > /etc/profile.d/conda.sh && \
+    rm $HOME/miniconda.sh
 
 # Fish shell setting
 RUN git clone https://github.com/ccwang002/dotfiles.git $HOME/dotfiles && \
