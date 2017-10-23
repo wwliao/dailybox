@@ -55,7 +55,7 @@ RUN git clone https://github.com/ccwang002/dotfiles.git $HOME/dotfiles && \
     rm -rf /root/.cache
 
 # Ripgrep, exa, and fd
-RUN wget --quiet https://github.com/BurntSushi/ripgrep/releases/download/0.6.0/ripgrep-0.6.0-x86_64-unknown-linux-musl.tar.gz -O $HOME/ripgrep.tar.gz && \
+RUN wget --quiet https://github.com/BurntSushi/ripgrep/releases/download/0.7.1/ripgrep-0.7.1-x86_64-unknown-linux-musl.tar.gz -O $HOME/ripgrep.tar.gz && \
     cd $HOME && tar xf $HOME/ripgrep.tar.gz && \
     cd `find $HOME -type d -name "ripgrep*"` && \
     mkdir -p /usr/local/share/man/man1 && cp rg.1 /usr/local/share/man/man1/ && \
