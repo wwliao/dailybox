@@ -67,9 +67,10 @@ RUN wget --quiet https://github.com/BurntSushi/ripgrep/releases/download/0.7.1/r
     wget --quiet https://storage.googleapis.com/dinglab/lbwang/tools/exa/v0.8.0_linux_musl/completions.fish -O /usr/share/fish/vendor_completions.d/exa.fish && \
     chmod 755 /usr/local/bin/exa && \
     \
-    wget --quiet https://github.com/sharkdp/fd/releases/download/v4.0.0/fd-v4.0.0-x86_64-linux.tar.gz -O $HOME/fd.tar.gz && \
+    wget --quiet https://github.com/sharkdp/fd/releases/download/v5.0.0/fd-v5.0.0-x86_64-unknown-linux-musl.tar.gz -O $HOME/fd.tar.gz && \
     cd $HOME && tar xf $HOME/fd.tar.gz && \
     cd `find $HOME -type d -name "fd*"` && \
-    cp fd       /usr/local/bin/ && \
-    cp fd.fish  /usr/share/fish/vendor_completions.d/ && \
+    cp fd /usr/local/bin/ && \
+    cp autocomplete/fd.fish /usr/share/fish/vendor_completions.d/ && \
+    cp fd.1 /usr/local/share/man/man1/ && \
     rm -rf $HOME/fd*
