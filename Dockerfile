@@ -40,7 +40,7 @@ RUN wget -nv http://download.opensuse.org/repositories/shells:fish:release:2/Deb
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Miniconda3
-RUN wget --quiet https://repo.continuum.io/miniconda/Miniconda3-4.3.30-Linux-x86_64.sh -O $HOME/miniconda.sh && \
+RUN wget --quiet https://repo.continuum.io/miniconda/Miniconda3-4.3.31-Linux-x86_64.sh -O $HOME/miniconda.sh && \
     /bin/bash $HOME/miniconda.sh -b -p /opt/conda && \
     conda config --add channels conda-forge && \
     conda config --add channels bioconda && \
@@ -67,7 +67,7 @@ RUN wget --quiet https://github.com/BurntSushi/ripgrep/releases/download/0.7.1/r
     wget --quiet https://storage.googleapis.com/dinglab/lbwang/tools/exa/v0.8.0_linux_musl/completions.fish -O /usr/share/fish/vendor_completions.d/exa.fish && \
     chmod 755 /usr/local/bin/exa && \
     \
-    wget --quiet https://github.com/sharkdp/fd/releases/download/v6.1.0/fd-v6.1.0-x86_64-unknown-linux-musl.tar.gz -O $HOME/fd.tar.gz && \
+    wget --quiet https://github.com/sharkdp/fd/releases/download/v6.2.0/fd-v6.2.0-x86_64-unknown-linux-musl.tar.gz -O $HOME/fd.tar.gz && \
     cd $HOME && tar xf $HOME/fd.tar.gz && \
     cd `find $HOME -type d -name "fd*"` && \
     cp fd /usr/local/bin/ && \
