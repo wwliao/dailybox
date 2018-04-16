@@ -61,7 +61,7 @@ RUN wget --quiet https://github.com/BurntSushi/ripgrep/releases/download/0.8.1/r
     mkdir -p /usr/local/share/man/man1 && \
     cp doc/rg.1 /usr/local/share/man/man1/ && \
     cp rg /usr/local/bin/ && \
-    cp complet/rg.fish /usr/share/fish/vendor_completions.d && \
+    cp complete/rg.fish /usr/share/fish/vendor_completions.d && \
     rm -rf $HOME/ripgrep* && \
     \
     wget --quiet https://storage.googleapis.com/dinglab/lbwang/tools/exa/v0.8.0_linux_musl/exa -O /usr/local/bin/exa && \
