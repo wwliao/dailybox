@@ -7,7 +7,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 # Configure locale and timezone
 RUN apt-get update && \
     apt-get install -y --no-install-recommends apt-utils && \
-    echo "US/Central" > /etc/timezone && \
+    echo "America/Chicago" > /etc/timezone && \
     rm /etc/localtime && \
     dpkg-reconfigure -f noninteractive tzdata; \
     apt-get update && apt-get install -y locales && \
