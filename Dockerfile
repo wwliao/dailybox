@@ -25,7 +25,7 @@ RUN apt-get update && \
     tmux less libreadline7 gzip bzip2 gnupg2 \
     openssh-client wget curl ca-certificates rsync \
     libglib2.0-0 libxext6 libsm6 libxrender1 git vim-nox make \
-    htop parallel \
+    htop parallel ncdu \
     libnss-sss && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
