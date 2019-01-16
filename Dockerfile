@@ -30,13 +30,13 @@ RUN apt-get update && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Fish shell
-RUN wget -nv http://download.opensuse.org/repositories/shells:fish:release:2/Debian_9.0/Release.key -O Release.key && \
-    apt-key add Release.key && \
-    echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/2/Debian_9.0/ /' > /etc/apt/sources.list.d/fish.list && \
+RUN curl -o /tmp/fish.key -sL http://download.opensuse.org/repositories/shells:fish:release:3/Debian_9.0/Release.key && \
+    APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=1 apt-key add /tmp/fish.key && \
+    echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_9.0/ /' > /etc/apt/sources.list.d/fish.list && \
     apt-get update && \
     apt-get install -y --no-install-recommends fish && \
     chsh -s /usr/bin/fish && \
-    rm Release.key && \
+    rm /tmp/fish.key && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Miniconda3
