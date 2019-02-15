@@ -69,7 +69,7 @@ RUN wget --quiet https://github.com/BurntSushi/ripgrep/releases/download/0.10.0/
     wget --quiet https://storage.googleapis.com/dinglab/lbwang/tools/exa/v0.8.0_linux_musl/completions.fish -O /usr/share/fish/vendor_completions.d/exa.fish && \
     chmod 755 /usr/local/bin/exa && \
     \
-    wget --quiet https://github.com/sharkdp/fd/releases/download/v7.2.0/fd-v7.2.0-x86_64-unknown-linux-musl.tar.gz -O $HOME/fd.tar.gz && \
+    wget --quiet https://github.com/sharkdp/fd/releases/download/v7.3.0/fd-v7.3.0-x86_64-unknown-linux-musl.tar.gz -O $HOME/fd.tar.gz && \
     cd $HOME && tar xf $HOME/fd.tar.gz && \
     cd `find $HOME -type d -name "fd*"` && \
     cp fd /usr/local/bin/ && \
