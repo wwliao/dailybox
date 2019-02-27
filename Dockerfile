@@ -42,8 +42,9 @@ RUN curl -o /tmp/fish.key -sL http://download.opensuse.org/repositories/shells:f
 # Miniconda3
 RUN wget --quiet https://repo.continuum.io/miniconda/Miniconda3-4.5.12-Linux-x86_64.sh -O $HOME/miniconda.sh && \
     /bin/bash $HOME/miniconda.sh -b -p /opt/conda && \
-    conda config --add channels conda-forge && \
+    conda config --add channels defaults && \
     conda config --add channels bioconda && \
+    conda config --add channels conda-forge && \
     echo '. /opt/conda/etc/profile.d/conda.sh' > /etc/profile.d/conda.sh && \
     rm $HOME/miniconda.sh
 
