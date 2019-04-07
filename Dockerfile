@@ -12,7 +12,8 @@ RUN apt-get update && \
     dpkg-reconfigure -f noninteractive tzdata; \
     apt-get update && apt-get install -y locales && \
     echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
-    locale-gen en_US.UTF-8 && \
+    # dkpg-reconfigure seems to take over the locale generation
+    # locale-gen en_US.UTF-8 && \
     dpkg-reconfigure -f noninteractive locales && \
     /usr/sbin/update-locale LANG=en_US.UTF-8; \
     apt-get clean && rm -rf /var/lib/apt/lists/*
