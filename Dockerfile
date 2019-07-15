@@ -59,9 +59,9 @@ RUN wget --quiet https://github.com/BurntSushi/ripgrep/releases/download/11.0.1/
     rm -rf $HOME/fd*
 
 # exa
-COPY exa_0.8.0_musl/exa /usr/local/bin/
-COPY exa_0.8.0_musl/exa.1 /usr/local/share/man/man1/
-COPY exa_0.8.0_musl/completions.fish /usr/share/fish/vendor_completions.d/exa.fish
+COPY exa_0.9.0_musl/exa /usr/local/bin/
+COPY exa_0.9.0_musl/exa.1 /usr/local/share/man/man1/
+COPY exa_0.9.0_musl/completions.fish /usr/share/fish/vendor_completions.d/exa.fish
 
 # Miniconda3
 RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-4.6.14-Linux-x86_64.sh -O $HOME/miniconda.sh && \
