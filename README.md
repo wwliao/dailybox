@@ -18,7 +18,7 @@ This Docker image `lbwang/dailybox` based on Debian stable includes several tool
 
 
 ## exa binary
-The folder `exa_0.8.0_musl` contains [exa] static binary (linux x84_64 musl):
+The folder `exa_0.9.0_musl` contains [exa] static binary (linux x84_64 musl):
 
     git clone https://github.com/ogham/exa.git
     docker run -v $PWD:/volume -w /volume -it --rm clux/muslrust bash
