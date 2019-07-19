@@ -1,5 +1,5 @@
 # My daily Docker image for McDonnell Genome Institute (MGI)
-This Docker image `lbwang/dailybox` based on Debian stable includes several tools that work on MGI cluster. It includes:
+This Docker image modified from `lbwang/dailybox`, which is based on Debian stable includes several tools that work on MGI cluster. It includes:
 
 - tmux
 - less

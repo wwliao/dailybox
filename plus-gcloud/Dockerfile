@@ -1,4 +1,4 @@
-FROM lbwang/dailybox
+FROM wwliao/dailybox
 
 ARG DEBIAN_FRONTEND=noninteractive
 

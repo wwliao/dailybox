@@ -1,5 +1,5 @@
 FROM debian:stretch
-LABEL maintainer="liang-bo.wang@wustl.edu"
+LABEL maintainer="wen-wei.liao@wustl.edu"
 
 ARG DEBIAN_FRONTEND=noninteractive
 
