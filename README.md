@@ -10,6 +10,7 @@ This Docker image modified from `lbwang/dailybox`, which is based on Debian stab
 - htop
 - parallel
 - ncdu
+- zstd
 - fish
 - ripgrep
 - fd
