@@ -26,7 +26,7 @@ RUN apt-get update && \
     tmux less libreadline7 gzip bzip2 zstd gnupg2 \
     openssh-client wget curl ca-certificates rsync \
     libglib2.0-0 libxext6 libsm6 libxrender1 git vim-nox make \
-    htop parallel ncdu \
+    htop parallel ncdu build-essential\
     libnss-sss && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
@@ -64,7 +64,7 @@ COPY exa_0.9.0_musl/exa.1 /usr/local/share/man/man1/
 COPY exa_0.9.0_musl/completions.fish /usr/share/fish/vendor_completions.d/exa.fish
 
 # Miniconda3
-RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-4.7.12.1-Linux-x86_64.sh -O $HOME/miniconda.sh && \
+RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-py38_4.8.2-Linux-x86_64.sh -O $HOME/miniconda.sh && \
     /bin/bash $HOME/miniconda.sh -b -p /opt/conda && \
     conda config --add channels defaults && \
     conda config --add channels bioconda && \
