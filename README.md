@@ -6,6 +6,7 @@ This Docker image modified from `lbwang/dailybox`, which is based on Debian stab
 - wget, curl, rsync
 - git
 - make
+- cmake
 - vim
 - htop
 - parallel
