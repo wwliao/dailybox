@@ -27,10 +27,9 @@ RUN apt-get update && \
     gzip bzip2 zstd zip unzip \
     gnupg2 openssh-client wget curl ca-certificates rsync \
     libglib2.0-0 libxext6 libsm6 libxrender1 git vim-nox \
-    htop parallel ncdu build-essential zlib1g zlib1g-dev \
-    libnss-sss snapd && \
+    htop parallel ncdu build-essential cmake zlib1g zlib1g-dev \
+    libnss-sss && \
     apt-get clean && rm -rf /var/lib/apt/lists/* && \
-    snap install core && snap install cmake
 
 # Fish shell
 RUN curl -o /tmp/fish.key -sL http://download.opensuse.org/repositories/shells:fish:release:3/Debian_9.0/Release.key && \
