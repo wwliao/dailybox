@@ -29,7 +29,7 @@ RUN apt-get update && \
     libglib2.0-0 libxext6 libsm6 libxrender1 git vim-nox \
     htop parallel ncdu build-essential cmake zlib1g zlib1g-dev \
     libnss-sss && \
-    apt-get clean && rm -rf /var/lib/apt/lists/* && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Fish shell
 RUN curl -o /tmp/fish.key -sL http://download.opensuse.org/repositories/shells:fish:release:3/Debian_9.0/Release.key && \
