@@ -27,7 +27,7 @@ RUN apt-get update && \
     gzip bzip2 zstd zip unzip \
     gnupg2 openssh-client wget curl ca-certificates rsync \
     libglib2.0-0 libxext6 libsm6 libxrender1 git vim-nox \
-    htop parallel ncdu build-essential cmake zlib1g zlib1g-dev \
+    htop parallel ncdu build-essential zlib1g zlib1g-dev \
     libnss-sss && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
@@ -72,6 +72,9 @@ RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-py38_4.8.3-Linux
     conda config --add channels conda-forge && \
     echo '. /opt/conda/etc/profile.d/conda.sh' > /etc/profile.d/conda.sh && \
     rm $HOME/miniconda.sh
+
+# cmake
+RUN pip install cmake
 
 # Fish shell setting
 RUN git clone https://github.com/ccwang002/dotfiles.git $HOME/dotfiles && \
