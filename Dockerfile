@@ -27,7 +27,7 @@ RUN apt-get update && \
     gzip bzip2 zstd zip unzip \
     gnupg2 openssh-client wget curl ca-certificates rsync \
     libglib2.0-0 libxext6 libsm6 libxrender1 git vim-nox \
-    htop parallel ncdu build-essential zlib1g zlib1g-dev \
+    htop parallel ncdu build-essential zlib1g zlib1g-dev gdb \
     libnss-sss && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
